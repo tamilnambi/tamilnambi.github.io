@@ -17,33 +17,49 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" role="button" data-bs-toggle="dropdown" href="#" aria-expanded="false">Movies</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Movies
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Popluar</a></li>
+                          <li><a class="dropdown-item" href="#">Now Playing</a></li>
+                          <li><a class="dropdown-item" href="#">Upcoming</a></li>
+                          <li><a class="dropdown-item" href="#">Top Rated</a></li>
+                        </ul>
+                      </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      TV Shows
+                    </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Popluar</a></li>
-                        <li><a class="dropdown-item" href="#">Now Playing</a></li>
-                        <li><a class="dropdown-item" href="#">Upcoming</a></li>
-                        <li><a class="dropdown-item" href="#">Top Rated</a></li>
-                      </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">TV Shows</a>
+                      <li><a class="dropdown-item" href="#">Popular</a></li>
+                      <li><a class="dropdown-item" href="#">Airing Today</a></li>
+                      <li><a class="dropdown-item" href="#">On TV</a></li>
+                      <li><a class="dropdown-item" href="#">Top Rated</a></li>
+                    </ul>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       People
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      <li><a class="dropdown-item" href="#">Popular People</a></li>
                     </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link">More</a>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      More
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Discussions</a></li>
+                      <li><a class="dropdown-item" href="#">Leaderboard</a></li>
+                      <li><a class="dropdown-item" href="#">Support</a></li>
+                      <li><a class="dropdown-item" href="#">API</a></li>
+                    </ul>
                   </li>
                 </ul>
+                <img src="src/img/plus.png" alt="add" width="20px" class="mx-2">
                 <form class="d-flex" role="search">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit">Search</button>
