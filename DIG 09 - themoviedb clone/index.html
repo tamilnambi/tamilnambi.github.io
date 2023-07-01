@@ -1,73 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>The Movie Database (TMDB)</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="src/css/basic.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/css/basic.css" />
   </head>
   <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src="src/img/logo.svg" alt="logo" width="180" height="50"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Movies
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Popluar</a></li>
-                          <li><a class="dropdown-item" href="#">Now Playing</a></li>
-                          <li><a class="dropdown-item" href="#">Upcoming</a></li>
-                          <li><a class="dropdown-item" href="#">Top Rated</a></li>
-                        </ul>
-                      </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      TV Shows
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Popular</a></li>
-                      <li><a class="dropdown-item" href="#">Airing Today</a></li>
-                      <li><a class="dropdown-item" href="#">On TV</a></li>
-                      <li><a class="dropdown-item" href="#">Top Rated</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      People
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Popular People</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      More
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Discussions</a></li>
-                      <li><a class="dropdown-item" href="#">Leaderboard</a></li>
-                      <li><a class="dropdown-item" href="#">Support</a></li>
-                      <li><a class="dropdown-item" href="#">API</a></li>
-                    </ul>
-                  </li>
+    <header id="max-header">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><img src="src/img/logo.svg" alt="logo" width="180" height="50"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Movies
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Popluar</a></li>
+                  <li><a class="dropdown-item" href="#">Now Playing</a></li>
+                  <li><a class="dropdown-item" href="#">Upcoming</a></li>
+                  <li><a class="dropdown-item" href="#">Top Rated</a></li>
                 </ul>
-                <img src="src/img/plus.png" alt="add" width="20px" class="mx-2">
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  TV Shows
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Popular</a></li>
+                  <li><a class="dropdown-item" href="#">Airing Today</a></li>
+                  <li><a class="dropdown-item" href="#">On TV</a></li>
+                  <li><a class="dropdown-item" href="#">Top Rated</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  People
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Popular People</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  More
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Discussions</a></li>
+                  <li><a class="dropdown-item" href="#">Leaderboard</a></li>
+                  <li><a class="dropdown-item" href="#">Support</a></li>
+                  <li><a class="dropdown-item" href="#">API</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="dropdown">
+              <button
+                class="btn"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img src="src/img/plus.png" alt="add" />
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Add New Movie</a></li>
+                <li><a class="dropdown-item" href="#">Add New TV Show</a></li>
+              </ul>
+            </div>
+            <button
+              type="button"
+              class="btn btn-outline-light mx-3"
+              id="btn-lang"
+            >
+              EN
+            </button>
+            <i class="bi bi-bell-fill mx-3 text-light"></i>
+            <a
+              href="#"
+              data-bs-toggle="tooltip"
+              data-bs-title="Profile and Settings"
+              data-bs-placement="bottom"
+              data-bs-custom-class="custom-tooltip"
+              class="mx-3"
+              ><img src="src/img/profile.svg" id="profile-svg"
+            /></a>
+            <form class="d-flex" role="search">
+              <button class="btn" type="submit">
+                <i class="bi bi-search text-primary"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <header id="min-header">
+      <nav
+        class="navbar bg-dark border-bottom border-bottom-dark"
+        data-bs-theme="dark"
+      >
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample"
+          >
+            <span class="navbar-toggler-icon text-white"></span>
+          </button>
+          <div
+            class="offcanvas offcanvas-start"
+            data-bs-scroll="true"
+            tabindex="-1"
+            id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel"
+          >
+            <div class="offcanvas-header">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample"
+              >
+                <span class="navbar-toggler-icon text-white"></span>
+              </button>
+              <a class="navbar-brand" href="#"
+                ><img
+                  src="src/img/min-logo.svg"
+                  alt="logo"
+                  width="180"
+                  height="50"
+              /></a>
+              <a href="#"><i class="bi bi-person-fill text-light"></i></a>
+            </div>
+            <div class="offcanvas-body">
+              <div id="main-links">
+                <a href="#" id="movies">Movies</a>
+                <div id="movies-menu">
+                  <ul>
+                    <li><a href="#">Popluar</a></li>
+                    <li><a href="#">Now Playing</a></li>
+                    <li><a href="#">Upcoming</a></li>
+                    <li><a href="#">Top Rated</a></li>
+                  </ul>
+                </div>
+                <a href="#" id="tvshows">TC Shows</a>
+                <a href="#" id="people">People</a>
+              </div>
+              <div id="misc-links">
+                <a href="#">Contibution Bible</a><br />
+                <a href="#">Discussions</a><br />
+                <a href="#">Leaderboard</a><br />
+                <a href="#">API</a><br />
+                <a href="#">Support</a><br />
+                <a href="#">About</a><br />
+                <br />
+                <a href="#">Login</a>
               </div>
             </div>
-          </nav>
+          </div>
+          <a class="navbar-brand" href="#"
+            ><img src="src/img/min-logo.svg" alt="logo" width="180" height="50"
+          /></a>
+          <a href="#"><i class="bi bi-person-fill text-light"></i></a>
+          <form class="d-flex" role="search">
+            <button class="btn" type="submit">
+              <i class="bi bi-search text-primary"></i>
+            </button>
+          </form>
+        </div>
+      </nav>
     </header>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="src/js/index.js"></script>
   </body>
 </html>
