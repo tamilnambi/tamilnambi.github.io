@@ -181,7 +181,7 @@
             </div>
             <div class="offcanvas-body">
               <div id="main-links">
-                <a href="#" id="movies">Movies</a>
+                <a href="#" id="movies" onclick="changeMoviesMenu()">Movies</a>
                 <div id="movies-menu">
                   <ul>
                     <li><a href="#">Popluar</a></li>
@@ -190,8 +190,21 @@
                     <li><a href="#">Top Rated</a></li>
                   </ul>
                 </div>
-                <a href="#" id="tvshows">TC Shows</a>
-                <a href="#" id="people">People</a>
+                <a href="#" id="tvshows" onclick="changeTVShowsMenu()">TV Shows</a>
+                <div id="tvshows-menu">
+                  <ul>
+                    <li><a href="#">Popluar</a></li>
+                    <li><a href="#">Airing Today</a></li>
+                    <li><a href="#">On TV</a></li>
+                    <li><a href="#">Top Rated</a></li>
+                  </ul>
+                </div>
+                <a href="#" id="people" onclick="changePeopleMenu()">People</a>
+                <div id="people-menu">
+                  <ul>
+                    <li><a href="#">Popluar People</a></li>
+                  </ul>
+                </div>
               </div>
               <div id="misc-links">
                 <a href="#">Contibution Bible</a><br />

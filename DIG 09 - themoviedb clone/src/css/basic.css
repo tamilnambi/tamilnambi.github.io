@@ -41,3 +41,18 @@
     display: block;
     font-size: 1.1rem;
 }
+#movies-menu, #tvshows-menu, #people-menu{
+    display: none;
+}
+#movies-menu ul, #tvshows-menu ul, #people-menu ul{
+    list-style: none;
+}
+#movies-menu ul a, #tvshows-menu ul a, #people-menu ul a{
+    text-decoration: none;
+    color: gray;
+    margin-left: -2rem;
+}
+#misc-links a{
+    text-decoration: none;
+    color: gray;
+}
