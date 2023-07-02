@@ -42,6 +42,7 @@ function changePeopleMenu() {
 trending();
 popular();
 freeToWatch();
+//trailers();
 
 function trending() {
   const options = {
@@ -178,4 +179,49 @@ function displayWatch(response){
     print += `<div class="card-type"><img src="${url}" width="150rem"><h6>${response.results[i].original_title}<h6><p>${openingDate}</p></div>`;
   }
   document.getElementById("watch-results").innerHTML = print;
+}
+
+function trailers(){
+    const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZDBhZjU4OTQzZjhiYzg2M2U1ZGM2ZWEyMDBkZWMzYSIsInN1YiI6IjY0OWIxNmQ2N2UzNDgzMDBhY2MzYTI2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TrFh8ToM1aVvdqNZHZK_KPoWHr_pYcy8OFWvmPqnt_s'
+        }
+      };
+      
+      fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+        .then(response => response.json())
+        .then(displayTrailers)
+        .catch(err => console.error(err));
+}
+
+function displayTrailers(response){
+
+    for (let i = 0; i < response.results.length; i++)
+    {
+        let id = response.results[i].id;
+        const options = {
+            method: 'GET',
+            headers: {
+              accept: 'application/json',
+              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZDBhZjU4OTQzZjhiYzg2M2U1ZGM2ZWEyMDBkZWMzYSIsInN1YiI6IjY0OWIxNmQ2N2UzNDgzMDBhY2MzYTI2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TrFh8ToM1aVvdqNZHZK_KPoWHr_pYcy8OFWvmPqnt_s'
+            }
+          };
+          
+          fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
+            .then(response => response.json())
+            .then(getTrailer)
+            .catch(err => console.error(err));
+    }
+
+}
+
+function getTrailer(response){
+    let print = "";
+    for (let i = 0; i < response.results.length; i++)
+    {
+        print += `<div><video controls><source src="https://www.youtube.com/watch?v=${response.results[0].key}" type="video/mp4"></video><div>`
+    }
+    document.getElementById("trailer-results").innerHTML = print;
 }

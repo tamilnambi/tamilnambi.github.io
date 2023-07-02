@@ -3,13 +3,23 @@
   #max-header {
     display: none;
   }
+  footer{
+    flex-direction: column;
+    padding-bottom: 5rem;
+  }
+  footer div{
+    flex-direction: column;
+  }
+  footer div img{
+    display: none;
+  }
 }
 @media only screen and (min-width: 800px) {
   #min-header {
     display: none;
   }
 }
-.navbar {
+.navbar,footer {
   background-color: #0d253f !important;
 }
 .nav-link {
@@ -102,8 +112,27 @@
     font-size: 0.75rem;
 }
 #trending-results{
-    background-image: url("src/img/dynamic_equalizer.png");
+    background-image: url("../img/dynamic_equalizer.png");
+    background-position: 100%;
 }
 #trailers-div{
     background-color:#0d253f;
+}
+footer div ul{
+    list-style-type: none;
+}
+footer div ul a{
+    text-decoration: none;
+    color: white;
+    margin-left: -2rem;
+}
+footer div button{
+    color: #01b4e4 !important;
+}
+#all-time{
+    list-style-image: url("../img/list_1.png");
+
+}
+#this-week{
+    list-style-image: url("../img/list_2.png");
 }

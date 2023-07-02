@@ -293,7 +293,51 @@
 
     <!-- Div for Trailers -->
     <div id="trailers-div">
-      <h5 class="text-light ps-5 pt-5">Latest Trailers</h5>
+      <div class="d-flex p-5">
+      <h5 class="text-light">Latest Trailers</h5>
+      <div class="ms-3">
+        <input
+          type="radio"
+          class="btn-check"
+          name="trailer-options"
+          id="popular-streaming"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-light" for="popular-streaming">Streaming</label>
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="trailer-options"
+          id="popular-tv"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-light" for="popular-tv">On TV</label>
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="trailer-options"
+          id="popular-rent"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-light" for="popular-rent">For Rent</label>
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="trailer-options"
+          id="popular-theater"
+          autocomplete="off"
+          checked
+        />
+        <label class="btn btn-outline-light" for="popular-theater">In Theaters</label> 
+      </div>
+      <div id="trailer-results" class="d-flex overflow-x-auto">
+
+      </div>
+      </div>
+
     </div>
 
     <!-- Popular Div-->
@@ -379,14 +423,58 @@
     <!-- Leaderboard -->
     <div>
       <h5 class="d-inline-block p-5">Leaderboard</h5>
-      <ul class="d-inline-block">
+      <div class="d-inline-block">
+      <ul id="all-time">
         <li>All Time Edits</li>
+      </ul>
+      <ul id="this-week">
         <li>Edits This Week</li>
       </ul>
+      </div>
     </div>
-
-    <footer>
-      
+    <!-- footer -->
+    <footer class="d-flex p-5 justify-content-center align-items-center">
+      <div class="mx-2">
+        <img src="src/img/min-logo.svg" alt="">
+        <button type="button" class="btn btn-light my-5">JOIN THE COMMUNITY</button>
+      </div>
+      <div class="d-flex align-items-start">
+        <div class="mx-3">
+          <h6 class="text-light">THE BASICS</h6>
+          <ul>
+            <li><a href="#">About TMDB</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Support Forums</a></li>
+            <li><a href="#">API</a></li>
+            <li><a href="#">System Status</a></li>
+          </ul>
+        </div>
+        <div class="mx-3">
+          <h6 class="text-light">GET INVOVLVED</h6>
+          <ul>
+            <li><a href="#">Contribution Bible</a></li>
+            <li><a href="#">Add New Movie</a></li>
+            <li><a href="#">Add New TV Show</a></li>
+          </ul>
+        </div>
+        <div class="mx-3">
+          <h6 class="text-light">COMMUNITY</h6>
+          <ul>
+            <li><a href="#">Guidelines</a></li>
+            <li><a href="#">Discussions</a></li>
+            <li><a href="#">Leaderboard</a></li>
+            <li><a href="#">Twitter</a></li>
+          </ul>
+        </div>
+        <div class="mx-3">
+          <h6 class="text-light">LEGAL</h6>
+          <ul>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">API Term of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
