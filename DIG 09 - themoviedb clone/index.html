@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/css/basic.css" />
+    <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon">
   </head>
   <body>
     <header id="max-header">
@@ -262,26 +263,26 @@
     <!-- Trending -->
     <div>
       <div class="d-flex p-5">
-        <h5 class="colored-heading">Trending</h5>
+        <h5>Trending</h5>
         <div class="ms-3">
           <input
             type="radio"
             class="btn-check"
-            name="options-outlined"
-            id="success-outlined"
+            name="trending-options"
+            id="trending-today"
             autocomplete="off"
             checked
           />
-          <label class="btn" for="success-outlined">Today</label>
+          <label class="btn" for="trending-today">Today</label>
 
           <input
             type="radio"
             class="btn-check"
-            name="options-outlined"
-            id="danger-outlined"
+            name="trending-options"
+            id="trending-week"
             autocomplete="off"
           />
-          <label class="btn" for="danger-outlined">This week</label>
+          <label class="btn" for="trending-week">This week</label>
           
         </div>
       </div>
@@ -298,53 +299,44 @@
     <!-- Popular Div-->
     <div>
       <div class="d-flex p-5">
-        <h5 class="colored-heading">What's Popular</h5>
+        <h5>What's Popular</h5>
         <div class="ms-3">
           <input
             type="radio"
             class="btn-check"
-            name="options-outlined"
-            id="success-outlined"
+            name="popular-options"
+            id="popular-streaming"
             autocomplete="off"
             checked
           />
-          <label class="btn" for="success-outlined">Streaming</label>
+          <label class="btn" for="popular-streaming">Streaming</label>
 
           <input
             type="radio"
             class="btn-check"
-            name="options-outlined"
-            id="danger-outlined"
+            name="popular-options"
+            id="popular-tv"
             autocomplete="off"
           />
-          <label class="btn" for="danger-outlined">On TV</label>
+          <label class="btn" for="popular-tv">On TV</label>
 
           <input
             type="radio"
             class="btn-check"
-            name="options-outlined"
-            id="danger-outlined"
+            name="popular-options"
+            id="popular-rent"
             autocomplete="off"
           />
-          <label class="btn" for="danger-outlined">For Rent</label>
+          <label class="btn" for="popular-rent">For Rent</label>
 
           <input
             type="radio"
             class="btn-check"
-            name="options-outlined"
-            id="danger-outlined"
+            name="popular-options"
+            id="popular-theater"
             autocomplete="off"
           />
-          <label class="btn" for="danger-outlined">On TV</label>
-
-          <input
-            type="radio"
-            class="btn-check"
-            name="options-outlined"
-            id="danger-outlined"
-            autocomplete="off"
-          />
-          <label class="btn" for="danger-outlined">In Theaters</label>
+          <label class="btn" for="popular-theater">In Theaters</label>
           
         </div>
       </div>
@@ -352,5 +344,49 @@
 
       </div>
     </div>
+
+    <!-- Free to watch div -->
+    <div>
+      <div class="d-flex p-5">
+        <h5>Free To Watch</h5>
+        <div class="ms-3">
+          <input
+            type="radio"
+            class="btn-check"
+            name="watch-options"
+            id="watch-movies"
+            autocomplete="off"
+            checked
+          />
+          <label class="btn" for="trending-today">Movies</label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="watch-options"
+            id="watch-tv"
+            autocomplete="off"
+          />
+          <label class="btn" for="trending-week">Tv</label>
+          
+        </div>
+      </div>
+      <div id="watch-results" class="d-flex overflow-x-auto">
+
+      </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div>
+      <h5 class="d-inline-block p-5">Leaderboard</h5>
+      <ul class="d-inline-block">
+        <li>All Time Edits</li>
+        <li>Edits This Week</li>
+      </ul>
+    </div>
+
+    <footer>
+      
+    </footer>
   </body>
 </html>
