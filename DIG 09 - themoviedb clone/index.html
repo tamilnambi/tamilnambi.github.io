@@ -190,7 +190,9 @@
                     <li><a href="#">Top Rated</a></li>
                   </ul>
                 </div>
-                <a href="#" id="tvshows" onclick="changeTVShowsMenu()">TV Shows</a>
+                <a href="#" id="tvshows" onclick="changeTVShowsMenu()"
+                  >TV Shows</a
+                >
                 <div id="tvshows-menu">
                   <ul>
                     <li><a href="#">Popluar</a></li>
@@ -236,5 +238,119 @@
       crossorigin="anonymous"
     ></script>
     <script src="src/js/index.js"></script>
+    <!-- Search Part-->
+    <div id="search-div">
+      <div class="contianer text-light ms-5 pt-5">
+        <h1>Welcome.</h1>
+        <h5>
+          Millions of movies, TV shows and people to discover. Explore now.
+        </h5>
+      </div>
+      <div class="p-5 d-flex">
+        <input
+          type="text"
+          name="search"
+          id="search-div-input"
+          class="form-control"
+          placeholder="Search for a movie, TV show, person....."
+        />
+        <button type="button" id="search-div-btn" class="btn text-light px-4">
+          Search
+        </button>
+      </div>
+    </div>
+    <!-- Trending -->
+    <div>
+      <div class="d-flex p-5">
+        <h5 class="colored-heading">Trending</h5>
+        <div class="ms-3">
+          <input
+            type="radio"
+            class="btn-check"
+            name="options-outlined"
+            id="success-outlined"
+            autocomplete="off"
+            checked
+          />
+          <label class="btn" for="success-outlined">Today</label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="options-outlined"
+            id="danger-outlined"
+            autocomplete="off"
+          />
+          <label class="btn" for="danger-outlined">This week</label>
+          
+        </div>
+      </div>
+      <div id="trending-results" class="d-flex overflow-x-auto">
+
+      </div>
+    </div>
+
+    <!-- Div for Trailers -->
+    <div id="trailers-div">
+      <h5 class="text-light ps-5 pt-5">Latest Trailers</h5>
+    </div>
+
+    <!-- Popular Div-->
+    <div>
+      <div class="d-flex p-5">
+        <h5 class="colored-heading">What's Popular</h5>
+        <div class="ms-3">
+          <input
+            type="radio"
+            class="btn-check"
+            name="options-outlined"
+            id="success-outlined"
+            autocomplete="off"
+            checked
+          />
+          <label class="btn" for="success-outlined">Streaming</label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="options-outlined"
+            id="danger-outlined"
+            autocomplete="off"
+          />
+          <label class="btn" for="danger-outlined">On TV</label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="options-outlined"
+            id="danger-outlined"
+            autocomplete="off"
+          />
+          <label class="btn" for="danger-outlined">For Rent</label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="options-outlined"
+            id="danger-outlined"
+            autocomplete="off"
+          />
+          <label class="btn" for="danger-outlined">On TV</label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="options-outlined"
+            id="danger-outlined"
+            autocomplete="off"
+          />
+          <label class="btn" for="danger-outlined">In Theaters</label>
+          
+        </div>
+      </div>
+      <div id="popular-results" class="d-flex overflow-x-auto">
+
+      </div>
+    </div>
   </body>
 </html>
