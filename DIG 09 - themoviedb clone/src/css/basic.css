@@ -149,6 +149,7 @@ footer div button{
 .trailer:hover{
   transform:scale(1.05);
   transition: 0.5s;
+  cursor: pointer;
 }
 .trailer:hover .play-button{
   transform: scale(1.2);

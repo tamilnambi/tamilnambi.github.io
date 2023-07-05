@@ -216,33 +216,14 @@ function displayTrailers(response){
             .then(response => response.json())
             .then(response => {
               let urlId = response.results[0].key;
-              thumbnails += `<div class="m-3 trailer" onclick="playTrailer()"><img class="rounded-3 d-block" src="https://i.ytimg.com/vi/${urlId}/maxresdefault.jpg" width="350rem"><h6 class="text-light text-center my-2">${response.results[0].name}</h6><i class="bi bi-play-fill text-light play-button"></i></div>`;
-              console.log(thumbnails);
+              thumbnails += `<div class="m-3 trailer" onclick="playTrailer('${urlId}',',${response.results[0].name}')" ><img class="rounded-3 d-block" src="https://i.ytimg.com/vi/${urlId}/maxresdefault.jpg" width="350rem"><h6 class="text-light text-center my-2">${response.results[0].name}</h6><i class="bi bi-play-fill text-light play-button"></i></div>`;
               document.getElementById("trailer-results").innerHTML = thumbnails;
             })
             .catch(err => console.error(err));
     }
-    //console.log(thumbnails);
-    //document.getElementById("trailer-results").innerHTML = thumbnails;
-    /*console.log(idArray);
-    console.log(typeof idArray);
-    for(let j=0;j<idArray.length;j++)
-    {
-      console.log("pushing "+ idArray[j]);
-      thumbnails.push("https://i.ytimg.com/vi/"+idArray[j]+"/hqdefault.jpg");
-      trailerUrls.push(`https://www.youtube.com/embed/${idArray[j]}`);
-    }*/
-
-    //console.log(thumbnails);
-    //console.log(trailerUrls);
 }
 
-function getTrailer(response){
-    console.log(response.results);
-    
-    //idArray.push(response.results[0].key);
-    //console.log(idArray);
-    //print += `<div class="p-3"><iframe src="https://www.youtube.com/embed/${response.results[0].key}"><div>`
-    //console.log(print);
-    //document.getElementById("trailer-results").innerHTML = print;
+function playTrailer(url,name){
+  let print = "";
+
 }
