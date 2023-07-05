@@ -136,3 +136,20 @@ footer div button{
 #this-week{
     list-style-image: url("../img/list_2.png");
 }
+.trailer{
+  position: relative;
+}
+.play-button{
+  position:absolute;
+  left: 8rem;
+  top: 2rem;
+  z-index: 1;
+  font-size: 5rem;
+}
+.trailer:hover{
+  transform:scale(1.05);
+  transition: 0.5s;
+}
+.trailer:hover .play-button{
+  transform: scale(1.2);
+}

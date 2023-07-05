@@ -42,7 +42,7 @@ function changePeopleMenu() {
 trending();
 popular();
 freeToWatch();
-//trailers();
+trailers();
 
 function trending() {
   const options = {
@@ -64,7 +64,7 @@ function trending() {
 }
 
 function displayTrending(response) {
-  console.log(response.results);
+  //console.log(response.results);
   let print = "";
 
   const m = [
@@ -108,7 +108,7 @@ function popular(){
 }
 
 function displayPopular(response){
-    console.log(response.results);
+  //console.log(response.results);
   let print = "";
 
   const m = [
@@ -153,7 +153,7 @@ function freeToWatch(){
 }
 
 function displayWatch(response){
-    console.log(response.results);
+  //console.log(response.results);
   let print = "";
 
   const m = [
@@ -197,7 +197,10 @@ function trailers(){
 }
 
 function displayTrailers(response){
-
+    
+  var idArray = [];
+  var thumbnails = "";
+  var trailerUrls = [];
     for (let i = 0; i < response.results.length; i++)
     {
         let id = response.results[i].id;
@@ -209,19 +212,37 @@ function displayTrailers(response){
             }
           };
           
-          fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
+          fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US&type=Trailer`, options)
             .then(response => response.json())
-            .then(getTrailer)
+            .then(response => {
+              let urlId = response.results[0].key;
+              thumbnails += `<div class="m-3 trailer" onclick="playTrailer()"><img class="rounded-3 d-block" src="https://i.ytimg.com/vi/${urlId}/maxresdefault.jpg" width="350rem"><h6 class="text-light text-center my-2">${response.results[0].name}</h6><i class="bi bi-play-fill text-light play-button"></i></div>`;
+              console.log(thumbnails);
+              document.getElementById("trailer-results").innerHTML = thumbnails;
+            })
             .catch(err => console.error(err));
     }
+    //console.log(thumbnails);
+    //document.getElementById("trailer-results").innerHTML = thumbnails;
+    /*console.log(idArray);
+    console.log(typeof idArray);
+    for(let j=0;j<idArray.length;j++)
+    {
+      console.log("pushing "+ idArray[j]);
+      thumbnails.push("https://i.ytimg.com/vi/"+idArray[j]+"/hqdefault.jpg");
+      trailerUrls.push(`https://www.youtube.com/embed/${idArray[j]}`);
+    }*/
 
+    //console.log(thumbnails);
+    //console.log(trailerUrls);
 }
 
 function getTrailer(response){
-    let print = "";
-    for (let i = 0; i < response.results.length; i++)
-    {
-        print += `<div><video controls><source src="https://www.youtube.com/watch?v=${response.results[0].key}" type="video/mp4"></video><div>`
-    }
-    document.getElementById("trailer-results").innerHTML = print;
+    console.log(response.results);
+    
+    //idArray.push(response.results[0].key);
+    //console.log(idArray);
+    //print += `<div class="p-3"><iframe src="https://www.youtube.com/embed/${response.results[0].key}"><div>`
+    //console.log(print);
+    //document.getElementById("trailer-results").innerHTML = print;
 }
