@@ -171,3 +171,10 @@ footer div button{
   padding-left: 1rem;
   padding-top: 0.5rem;
 }
+.search-suggestions{
+  cursor: pointer;
+}
+input:focus{
+  border: none !important;
+  box-shadow: none !important;
+}

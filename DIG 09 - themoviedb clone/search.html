@@ -130,14 +130,17 @@
                   class="mx-3"
                   ><img src="src/img/profile.svg" id="profile-svg"
                 /></a>
-                <form class="d-flex" role="search">
-                  <button class="btn" type="submit">
+                  <button class="btn" id="search-btn" type="submit" onclick="toggleSearchBar()">
                     <i class="bi bi-search text-primary"></i>
-                  </button>
-                </form>
+                  </button>            
               </div>
             </div>
           </nav>
+          <div id="search-field">
+            <i class="bi bi-search" id="search-icon"></i>
+            <input type="text" name="search" id="search" class="ps-5 form-control" placeholder="Search for a movie, TV Show, Person....">
+            <div id="suggestions"></div>
+          </div>
         </div>
         <div id="min-header">
           <nav
@@ -247,9 +250,9 @@
       <main class=" mt-5 container d-flex">
         <aside id="max-sidebar" class="border rounded-3">
             <div id="search-heading" class="rounded-top"><h6 class="text-light py-3 ps-2">Search Results</h6></div>
-            <div class="mt-1 px-2 d-flex justify-content-between" onclick="displayTvShows()"><p>TV Shows</p><span id="tvShows-no" class="badge text-bg-light"></span></div>
-            <div class="mt-1 px-2 d-flex justify-content-between" onclick="displayMovies()"><p>Movies</p><span id="movies-no" class="badge text-bg-light"></span></div>
-            <div class="mt-1 px-2 d-flex justify-content-between" onclick="displayPeople()"><p>People</p><span id="people-no" class="badge text-bg-light"></span></div>
+            <div id="search-tvshow-div" class="mt-1 py-2 px-2 d-flex justify-content-between" onclick="displayTvShows()"><span>TV Shows</span><span id="tvShows-no" class="badge text-bg-light"></span></div>
+            <div id="search-movie-div" class="mt-1 py-2 px-2 d-flex justify-content-between" onclick="displayMovies()"><span>Movies</span><span id="movies-no" class="badge text-bg-light"></span></div>
+            <div id="search-people-div" class="mt-1 py-2 px-2 d-flex justify-content-between" onclick="displayPeople()"><span>People</span><span id="people-no" class="badge text-bg-light"></span></div>
         </aside>
         <article class="mx-3">
             <div id="results"></div>
@@ -257,5 +260,6 @@
       </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="src/js/searchPage.js"></script>
+    <script src="src/js/search.js"></script>
   </body>
 </html>

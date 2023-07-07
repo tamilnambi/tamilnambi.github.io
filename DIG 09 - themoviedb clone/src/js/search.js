@@ -1,5 +1,5 @@
 let showSearchBar = false;
-function startSearch(){
+function startSearchByDiv(){
     let searchItem = document.getElementById('search-div-input').value;
     localStorage.setItem('searchString',searchItem);
     window.location.href = "search.html";
@@ -44,8 +44,12 @@ function showTrending(response){
             searchItems.push(response.results[i].name);
         else if(response.results[i].media_type == "movie")
             searchItems.push(response.results[i].title);  
-        print +=   `<div class="d-flex py-1"><i class="bi bi-search ms-3"></i><span class="ms-3">${searchItems[i]}</span></div>`;
+        print +=   `<div class="d-flex py-1 search-suggestions"><i class="bi bi-search ms-3"></i><span class="ms-3" onclick="startSearchByBar('${searchItems[i]}')">${searchItems[i]}</span></div>`;
     }
     console.log(searchItems);
     document.getElementById('suggestions').innerHTML = print;
+}
+function startSearchByBar(searchItem){
+    localStorage.setItem('searchString',searchItem);
+    window.location.href = "search.html";
 }
