@@ -87,11 +87,14 @@ function displayTrending(response) {
     const openingDate =
       day.getDate() + " " + m[day.getMonth()] + " " + day.getFullYear();
     url = `https://image.tmdb.org/t/p/original/${response.results[i].poster_path}`;
-    print += `<div class="card-type"><img src="${url}" width="150rem"><h6>${response.results[i].original_title}<h6><p>${openingDate}</p></div>`;
+    print += `<div class="card-type"><img src="${url}" width="150rem" onclick="displayMovie('${response.results[i].id}')"><h6 onclick="displayMovie('${response.results[i].id}')">${response.results[i].original_title}<h6><p>${openingDate}</p></div>`;
   }
   document.getElementById("trending-results").innerHTML = print;
 }
-
+function displayMovie(movieId){
+  localStorage.setItem('movieId',movieId);
+  window.location.href("movie.html");
+}
 function popular(){
     const options = {
         method: 'GET',

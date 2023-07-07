@@ -107,6 +107,13 @@
 }
 .card-type img{
     border-radius: 0.5rem;
+    cursor: pointer;
+}
+.card-type h6{
+  cursor: pointer;
+}
+.card-type h6:hover{
+  color: #01b4e4;
 }
 .card-type p{
     color: gray;
