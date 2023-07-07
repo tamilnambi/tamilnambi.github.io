@@ -19,6 +19,7 @@
     display: none;
   }
 }
+
 .navbar,footer {
   background-color: #0d253f !important;
 }
@@ -153,4 +154,20 @@ footer div button{
 }
 .trailer:hover .play-button{
   transform: scale(1.2);
+}
+#play-trailer{
+  display: none;
+  position: fixed;
+  top: 3rem;
+  left: 14rem;
+  height: 30rem;
+  width: 50rem;
+}
+#search-field{
+  display: none;
+}
+#search-icon{
+  position: absolute;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
 }

@@ -1,0 +1,17 @@
+#search-heading{
+    background-color: #01b4e4;
+}
+aside{
+    width:15vw;
+    height: 12rem;
+}
+.overview{
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+#results{
+    width: 70vw;
+}

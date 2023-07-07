@@ -133,14 +133,17 @@
                 class="mx-3"
                 ><img src="src/img/profile.svg" id="profile-svg"
               /></a>
-              <form class="d-flex" role="search">
-                <button class="btn" type="submit">
+                <button class="btn" id="search-btn" type="submit" onclick="toggleSearchBar()">
                   <i class="bi bi-search text-primary"></i>
-                </button>
-              </form>
+                </button>            
             </div>
           </div>
         </nav>
+        <div id="search-field">
+          <i class="bi bi-search" id="search-icon"></i>
+          <input type="text" name="search" id="search" class="ps-5 form-control" placeholder="Search for a movie, TV Show, Person....">
+          <div id="suggestions"></div>
+        </div>
       </div>
       <div id="min-header">
         <nav
@@ -262,7 +265,7 @@
           class="form-control"
           placeholder="Search for a movie, TV show, person....."
         />
-        <button type="button" id="search-div-btn" class="btn text-light px-4">
+        <button type="button" id="search-div-btn" class="btn text-light px-4" onclick="startSearch()">
           Search
         </button>
       </div>
@@ -346,7 +349,7 @@
       </div>
       <div id="trailer-results" class="d-flex overflow-x-auto"></div>
     </div>
-
+    <div id="play-trailer"></div>
     <!-- Popular Div-->
     <div>
       <div class="d-flex p-5">
@@ -485,5 +488,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="src/js/index.js"></script>
+    <script src="src/js/search.js"></script>
   </body>
 </html>

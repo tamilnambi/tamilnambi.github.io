@@ -216,7 +216,7 @@ function displayTrailers(response){
             .then(response => response.json())
             .then(response => {
               let urlId = response.results[0].key;
-              thumbnails += `<div class="m-3 trailer" onclick="playTrailer('${urlId}',',${response.results[0].name}')" ><img class="rounded-3 d-block" src="https://i.ytimg.com/vi/${urlId}/maxresdefault.jpg" width="350rem"><h6 class="text-light text-center my-2">${response.results[0].name}</h6><i class="bi bi-play-fill text-light play-button"></i></div>`;
+              thumbnails += `<div class="m-3 trailer" onclick="playTrailer('${urlId}','${response.results[0].name}')" ><img class="rounded-3 d-block" src="https://i.ytimg.com/vi/${urlId}/maxresdefault.jpg" width="350rem"><h6 class="text-light text-center my-2">${response.results[0].name}</h6><i class="bi bi-play-fill text-light play-button"></i></div>`;
               document.getElementById("trailer-results").innerHTML = thumbnails;
             })
             .catch(err => console.error(err));
@@ -224,6 +224,14 @@ function displayTrailers(response){
 }
 
 function playTrailer(url,name){
-  let print = "";
+  let print = `<div class="d-flex justify-content-between bg-black py-3 px-2"><h6 class="text-light">${name}</h6><div data-bs-theme="dark"><button type="button" class="btn-close" aria-label="Close" onclick="closeTrailer()"></button></div></div><div class="ratio ratio-16x9"><iframe id="trailer" src="https://www.youtube.com/embed/${url}" allowfullscreen></iframe></div>`;
+  document.getElementById('play-trailer').style.display="block";
+  document.getElementById('play-trailer').style.zIndex = "1";
+  document.getElementById('play-trailer').innerHTML = print;
 
+}
+
+function closeTrailer(){
+  document.getElementById('trailer').src="";
+  document.getElementById('play-trailer').style.display="none";
 }
