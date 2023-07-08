@@ -18,5 +18,8 @@ function getMovie(){
     
 }
 function displayMovie(response){
+    console.log(response);
     document.title = response.original_title + " - The Movie Database (TMDB)";
+    urlId = `https://image.tmdb.org/t/p/original${response.backdrop_path}`;
+    document.getElementById('main-section').style.backgroundImage= `url(${urlId})`;
 }

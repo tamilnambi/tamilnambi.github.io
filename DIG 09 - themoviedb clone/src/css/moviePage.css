@@ -1,3 +1,7 @@
 .default-sub-menu{
     margin-bottom: 2px solid #01b4e4 !important;
 }
+#main-section{
+    height: 110vh;
+    background-size: 100%;
+}
