@@ -93,7 +93,7 @@ function displayTrending(response) {
 }
 function displayMovie(movieId){
   localStorage.setItem('movieId',movieId);
-  window.location.href("movie.html");
+  window.location.href="movie.html";
 }
 function popular(){
     const options = {
