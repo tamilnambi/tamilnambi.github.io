@@ -1,3 +1,4 @@
+
 getMovie();
 
 function getMovie(){
@@ -21,5 +22,22 @@ function displayMovie(response){
     console.log(response);
     document.title = response.original_title + " - The Movie Database (TMDB)";
     urlId = `https://image.tmdb.org/t/p/original${response.backdrop_path}`;
-    document.getElementById('main-section').style.backgroundImage= `url(${urlId})`;
+    
+    getDominantColor(urlId);
+    
+}
+function getDominantColor(urlId){
+    const colorThief = new ColorThief();
+    const img = new Image();
+    var color;
+img.crossOrigin = 'Anonymous';
+let googleProxyURL = 'https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=';
+img.src = googleProxyURL + encodeURIComponent(urlId);
+img.addEventListener('load', function() {
+   var color= colorThief.getColor(img);
+   console.log(color);
+   document.getElementById('main-section').style.backgroundImage= `url(${urlId})`;
+   document.getElementById('movie-details').style.backgroundColor = "rgba(" + color[0] + ", " + color[1] + ", " + color[2] + ", 0.75)";
+});
+
 }
