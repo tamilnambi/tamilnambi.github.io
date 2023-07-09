@@ -19,15 +19,26 @@ function getMovie() {
 }
 function displayMovie(response) {
   console.log(response);
+  let print = "";
   document.title = response.original_title + " - The Movie Database (TMDB)";
   backgroundUrlId = `https://image.tmdb.org/t/p/original${response.backdrop_path}`;
-  getBackground(backgroundUrlId);
   posterUrlId = `https://image.tmdb.org/t/p/w500${response.poster_path}`;
-  console.log(posterUrlId);
+  genreList = getGenre(response.genres);
+  getBackground(backgroundUrlId);
   document.getElementById(
     "movie-poster"
   ).innerHTML = `<img class="m-5" src="${posterUrlId}" height="500rem">`;
+    print = `<h1 class="ms-3 mt-5 text-light">${response.original_title}</h1><div class="ms-3 text-light"><span>${response.release_date}<i class="bi bi-dot"></i>${genreList}</span><i class="bi bi-dot"></i>${response.runtime}</div>`;
+    document.getElementById('movie-data').innerHTML = print;
 }
+// gets the genre object array and returns the genre names as a string
+function getGenre(genreList){
+    let arrayForGenreNames = [];
+    for(let i=0;i<genreList.length;i++)
+        arrayForGenreNames.push(genreList[i].name);
+    return arrayForGenreNames.toString();
+}
+//sets the background image and the dominant color of the image on top of it
 function getBackground(urlId) {
   const colorThief = new ColorThief();
   const img = new Image();
