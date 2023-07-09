@@ -87,7 +87,7 @@ function displayTrending(response) {
     const openingDate =
       day.getDate() + " " + m[day.getMonth()] + " " + day.getFullYear();
     url = `https://image.tmdb.org/t/p/original/${response.results[i].poster_path}`;
-    print += `<div class="card-type"><img src="${url}" width="150rem" onclick="displayMovie('${response.results[i].id}')"><h6 onclick="displayMovie('${response.results[i].id}')">${response.results[i].original_title}<h6><p>${openingDate}</p></div>`;
+    print += `<div class="card-type"><img src="${url}" width="150rem" onclick="displayMovie('${response.results[i].id}')"><div class="rating mb-1"><span class="text-light bg-black rounded-circle p-2">${response.results[i].vote_average.toFixed(1)}</span></div><h6 onclick="displayMovie('${response.results[i].id}')">${response.results[i].original_title}<h6><p>${openingDate}</p></div>`;
   }
   document.getElementById("trending-results").innerHTML = print;
 }
@@ -179,7 +179,7 @@ function displayWatch(response){
     const openingDate =
       day.getDate() + " " + m[day.getMonth()] + " " + day.getFullYear();
     url = `https://image.tmdb.org/t/p/original/${response.results[i].poster_path}`;
-    print += `<div class="card-type"><img src="${url}" width="150rem"><h6>${response.results[i].original_title}<h6><p>${openingDate}</p></div>`;
+    print += `<div class="card-type"><img src="${url}" width="150rem" onclick="displayMovie('${response.results[i].id}')"><div class="rating mb-1"><span class="text-light bg-black rounded-circle p-2">${response.results[i].vote_average.toFixed(1)}</span></div><h6 onclick="displayMovie('${response.results[i].id}')">${response.results[i].original_title}<h6><p>${openingDate}</p></div>`;
   }
   document.getElementById("watch-results").innerHTML = print;
 }

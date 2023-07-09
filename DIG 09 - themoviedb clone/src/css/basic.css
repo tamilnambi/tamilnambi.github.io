@@ -185,3 +185,7 @@ input:focus{
   border: none !important;
   box-shadow: none !important;
 }
+.rating{
+  margin-left: 0.25rem;
+  margin-top: -0.5rem;
+}

@@ -13,3 +13,12 @@
   width: 100%;
   height: 100%;
 }
+#left-section{
+    width: 75vw;
+}
+#right-section{
+    width: 20vw;
+}
+.font-mini{
+    font-size: 0.8rem;
+}

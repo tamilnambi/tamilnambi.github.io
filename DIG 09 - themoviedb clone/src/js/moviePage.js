@@ -63,6 +63,12 @@ function displayCastAndCrew(response){
     }
     printCrew += `</div>`;
     document.getElementById("movie-crew").innerHTML = printCrew;
+    let printCast = "";
+    for(let j=0;j<10;j++)
+    {
+        printCast += `<div class="border rounded me-2 shadow-sm"><img class="rounded-top" src="https://image.tmdb.org/t/p/w500${response.cast[j].profile_path}" width="150rem"><h6 class="fw-bold ps-1 pt-1">${response.cast[j].name}</h6><p class="font-mini ps-1">${response.cast[j].character}</p></div>`;
+    }
+    document.getElementById("movie-cast").innerHTML = printCast;
 }
 // gets the genre object array and returns the genre names as a string
 function getGenre(genreList) {
