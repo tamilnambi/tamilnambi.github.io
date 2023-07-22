@@ -30,6 +30,21 @@
     height: 4rem;
     border-radius: 50%; 
 }
-.progress-bar::before {
-   background-color: black;
-  }
+.review-link,.discussion-link{
+    text-decoration: none;
+    color: black;
+}
+.overview{
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#all-review-link{
+    text-decoration: none;
+    color: black;
+}
+#all-review-link:hover{
+    color: gray;
+}

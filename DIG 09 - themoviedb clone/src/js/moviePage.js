@@ -1,4 +1,5 @@
 getMovie();
+var movieName = "";
 
 function getMovie() {
   let id = localStorage.getItem("movieId");
@@ -36,7 +37,8 @@ function displayMovie(response) {
   )}<i class="bi bi-dot"></i>${genreList}<i class="bi bi-dot"></i>${
     response.runtime
   }</span>`;
-  document.getElementById("movie-title").innerHTML = response.original_title;
+  movieName = response.original_title;
+  document.getElementById("movie-title").innerHTML = movieName;
   document.getElementById("movie-line1").innerHTML = print;
   displayRating(
     response.vote_average
@@ -128,6 +130,31 @@ function getReviews(id) {
 //display the reviews of the movie
 function displayReviews(response) {
   console.log(response);
+  let print = "";
+  let author = "";
+  let rating = "";
+  if(response.results.length == 0)
+    print = `<p>We don't have any reviews for ${movieName}`;
+  else{
+    if(response.results[0].author != null)
+    author = response.results[0].author;
+  else
+    author = response.results[0].author_details.username;
+  if(response.results[0].author_details.rating != null)
+    rating = `<i class="bi bi-star-fill me-1"></i>${response.results[0].author_details.rating}`;
+  print = `<div class="border rounded-2 shadow ms-2 mb-4">
+            <div class="ms-4 mt-4 d-flex align-items-center">
+            <img class="rounded-circle me-4" width="75rem" src="https://www.themoviedb.org/t/p/w300_and_h300_face${response.results[0].author_details.avatar_path}">
+            <div>
+              <h5>A review by ${author}<span class="badge bg-dark ms-2">${rating}</span></h5>
+              <p class="text-secondary">Written by ${author} on </p>
+            </div>
+            </div>
+            <div class="ms-5"><p class="ms-5 overview" style="font-size:0.87rem;">${response.results[0].content}</p></div>
+          </div>
+          <div class="ms-3 mb-4"><a href="#" id="all-review-link">Read All Reviews</a></div>`;
+  }
+  document.getElementById('review-discussion-view').innerHTML = print;
 }
 //display the movie rating
 function displayRating(rating) {
@@ -147,5 +174,4 @@ function displayRating(rating) {
   conic-gradient(red ${rating}%, gray 0)`;
   let print = `<div class="progress-bar" style="${bg}">${rating}%<progress value="${rating}" min="0" max="100" style="visibility:hidden;height:0;width:0;"></progress></div>`;
   document.getElementById('movie-rating').innerHTML = print;
-  document.querySelector('.progress-bar').style.setProperty('--rating', `${rating}%`);
 }
