@@ -311,6 +311,11 @@
                 <h1 class="ms-3 mt-5 text-light" id="movie-title"></h1>
                 <div class="ms-3 text-light" id="movie-line1"></div>
                 <div class="ms-3 my-2" id="movie-user-interaction"></div>
+                <div class="ms-3 my-2 d-flex">
+                  <div id="movie-rating"></div>
+                  <div id="movie-options"></div>
+                  <div id="movie-trailer"></div>
+                </div>
                 <div class="ms-3 text-light" id="movie-tag-line"></div>
                 <div class="ms-3 mt-2 text-light">
                     <h4>Overview</h4>
@@ -321,13 +326,23 @@
         </div>
     </main>
     <div class="d-flex ms-3 mt-3">
-        <section id="left-section">
+        <section id="left-section" class="ms-3">
             <div>
                 <h5>Top Billed Cast</h5>
                 <div id="movie-cast" class="d-flex overflow-x-auto py-3">
                 </div>
                 <a href="#" class="btn fw-bold my-2">Full Cast & Crew</a>
                 <hr class="my-2">
+            </div>
+            <div class="mt-4">
+              <div class="d-flex align-items-center">
+                <h5 class="me-5">Social</h5>
+                <h6 class="me-3">Reviews</h6>
+                <h6 class="me-3">Discussions</h6>
+              </div>
+              <div id="review-discussion-view">
+
+              </div>
             </div>
         </section>
         <section id="right-section"></section>

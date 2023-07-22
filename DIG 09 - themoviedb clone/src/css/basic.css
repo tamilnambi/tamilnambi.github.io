@@ -120,8 +120,8 @@
     font-size: 0.75rem;
 }
 #trending-results{
-    background-image: url("../img/dynamic_equalizer.png");
-    background-position: 100%;
+    background-image: url("../img/trending-bg.svg");
+    background-repeat: no-repeat;
 }
 #trailers-div{
     background-color:#0d253f;
