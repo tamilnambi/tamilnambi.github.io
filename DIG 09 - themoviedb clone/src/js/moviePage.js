@@ -1,17 +1,17 @@
-getMovie();
 var movieName = "";
-
+let trailers = null;
+  let images = null;
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZDBhZjU4OTQzZjhiYzg2M2U1ZGM2ZWEyMDBkZWMzYSIsInN1YiI6IjY0OWIxNmQ2N2UzNDgzMDBhY2MzYTI2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TrFh8ToM1aVvdqNZHZK_KPoWHr_pYcy8OFWvmPqnt_s",
+  },
+};
+getMovie();
 function getMovie() {
   let id = localStorage.getItem("movieId");
-
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZDBhZjU4OTQzZjhiYzg2M2U1ZGM2ZWEyMDBkZWMzYSIsInN1YiI6IjY0OWIxNmQ2N2UzNDgzMDBhY2MzYTI2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TrFh8ToM1aVvdqNZHZK_KPoWHr_pYcy8OFWvmPqnt_s",
-    },
-  };
 
   fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
     .then((response) => response.json())
@@ -40,27 +40,17 @@ function displayMovie(response) {
   movieName = response.original_title;
   document.getElementById("movie-title").innerHTML = movieName;
   document.getElementById("movie-line1").innerHTML = print;
-  displayRating(
-    response.vote_average
-  );
+  displayRating(response.vote_average);
   document.getElementById(
     "movie-tag-line"
   ).innerHTML = `<p class="fs-6"><i>${response.tagline}</i></p>`;
   document.getElementById("movie-overview").innerHTML = response.overview;
   getCastAndCrew(response.id);
   getReviews(response.id);
+  getMedia(response.id);
 }
 //gets the cast and crew from the movie id and forwards for display
 function getCastAndCrew(id) {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZDBhZjU4OTQzZjhiYzg2M2U1ZGM2ZWEyMDBkZWMzYSIsInN1YiI6IjY0OWIxNmQ2N2UzNDgzMDBhY2MzYTI2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TrFh8ToM1aVvdqNZHZK_KPoWHr_pYcy8OFWvmPqnt_s",
-    },
-  };
-
   fetch(
     `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`,
     options
@@ -113,15 +103,6 @@ function getBackground(urlId) {
 }
 // gets the reviews of the movie by calling the concerned api
 function getReviews(id) {
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZDBhZjU4OTQzZjhiYzg2M2U1ZGM2ZWEyMDBkZWMzYSIsInN1YiI6IjY0OWIxNmQ2N2UzNDgzMDBhY2MzYTI2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TrFh8ToM1aVvdqNZHZK_KPoWHr_pYcy8OFWvmPqnt_s",
-    },
-  };
-
   fetch(`https://api.themoviedb.org/3/movie/${id}/reviews`, options)
     .then((response) => response.json())
     .then(displayReviews)
@@ -133,16 +114,14 @@ function displayReviews(response) {
   let print = "";
   let author = "";
   let rating = "";
-  if(response.results.length == 0)
+  if (response.results.length == 0)
     print = `<p>We don't have any reviews for ${movieName}`;
-  else{
-    if(response.results[0].author != null)
-    author = response.results[0].author;
-  else
-    author = response.results[0].author_details.username;
-  if(response.results[0].author_details.rating != null)
-    rating = `<i class="bi bi-star-fill me-1"></i>${response.results[0].author_details.rating}`;
-  print = `<div class="border rounded-2 shadow ms-2 mb-4">
+  else {
+    if (response.results[0].author != null) author = response.results[0].author;
+    else author = response.results[0].author_details.username;
+    if (response.results[0].author_details.rating != null)
+      rating = `<i class="bi bi-star-fill me-1"></i>${response.results[0].author_details.rating}`;
+    print = `<div class="border rounded-2 shadow ms-2 mb-4">
             <div class="ms-4 mt-4 d-flex align-items-center">
             <img class="rounded-circle me-4" width="75rem" src="https://www.themoviedb.org/t/p/w300_and_h300_face${response.results[0].author_details.avatar_path}">
             <div>
@@ -154,7 +133,7 @@ function displayReviews(response) {
           </div>
           <div class="ms-3 mb-4"><a href="#" id="all-review-link">Read All Reviews</a></div>`;
   }
-  document.getElementById('review-discussion-view').innerHTML = print;
+  document.getElementById("review-discussion-view").innerHTML = print;
 }
 //display the movie rating
 function displayRating(rating) {
@@ -173,5 +152,70 @@ function displayRating(rating) {
   radial-gradient(closest-side, white 79%, transparent 80% 100%),
   conic-gradient(red ${rating}%, gray 0)`;
   let print = `<div class="progress-bar" style="${bg}">${rating}%<progress value="${rating}" min="0" max="100" style="visibility:hidden;height:0;width:0;"></progress></div>`;
-  document.getElementById('movie-rating').innerHTML = print;
+  document.getElementById("movie-rating").innerHTML = print;
+}
+//to get the trailers, backdrops and posters of the movie from api
+async function getMedia(movieId){
+  //const trailers = getTrailers(movieId);
+
+  await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos`, options)
+  .then(response => response.json())
+  .then(response => {trailers = response})
+  .catch(err => console.error(err));
+
+  await fetch(`https://api.themoviedb.org/3/movie/${movieId}/images`, options)
+  .then(response => response.json())
+  .then(response => {images = response})
+  .catch(err => console.error(err));
+
+  displayPopular();
+}
+// to display the most popular trailer, backdrop and poster
+function displayPopular(){
+  console.log(trailers);
+  console.log(images);
+  let print=`<div class="trailer" onclick="playTrailer('${trailers.results[0].key}','${trailers.results[0].name}')" ><img src="https://i.ytimg.com/vi/${trailers.results[0].key}/maxresdefault.jpg" width="500rem"><i class="bi bi-play-fill text-light media-play-button"></i></div>
+              <image src="https://image.tmdb.org/t/p/original${images.backdrops[0].file_path}" height="282rem">
+              <image src="https://image.tmdb.org/t/p/original${images.posters[0].file_path}" height="282rem">`;
+  document.getElementById('media-view').innerHTML = print;
+}
+// tp play the video on top of the page
+function playTrailer(url,name){
+  let print = `<div class="d-flex justify-content-between bg-black py-3 px-2"><h6 class="text-light">${name}</h6><div data-bs-theme="dark"><button type="button" class="btn-close" aria-label="Close" onclick="closeTrailer()"></button></div></div><div class="ratio ratio-16x9"><iframe id="trailer" src="https://www.youtube.com/embed/${url}" allowfullscreen></iframe></div>`;
+  document.getElementById('play-trailer').style.display="block";
+  document.getElementById('play-trailer').style.zIndex = "1";
+  document.getElementById('play-trailer').innerHTML = print;
+
+}
+// to close the playing video
+function closeTrailer(){
+  document.getElementById('trailer').src="";
+  document.getElementById('play-trailer').style.display="none";
+}
+// to display the videos of the movie
+function displayVideos(){
+  let print="";
+  for(let i=0;i<6;i++){
+    print += `<div class="trailer" onclick="playTrailer('${trailers.results[i].key}','${trailers.results[i].name}')" ><img src="https://i.ytimg.com/vi/${trailers.results[i].key}/maxresdefault.jpg" width="500rem"><i class="bi bi-play-fill text-light media-play-button"></i></div>`;
+  }
+  print += `<div class="mx-5 px-5 media-link-div"><a href="" class=" link">View More <i class="bi bi-arrow-right"></i></a></div>`;
+  document.getElementById('media-view').innerHTML = print;
+}
+// to display the backdrops of the movie
+function displayBackdrops(){
+  let print="";
+  for(let i=0;i<6;i++){
+    print += `<image src="https://image.tmdb.org/t/p/original${images.backdrops[i].file_path}" height="282rem"></image>`;
+  }
+  print += `<div class="mx-5 px-5 media-link-div"><a href="" class=" link">View More <i class="bi bi-arrow-right"></i></a></div>`;
+  document.getElementById('media-view').innerHTML = print;
+}
+// to display the posters of the movie
+function displayPosters(){
+  let print="";
+  for(let i=0;i<6;i++){
+    print += `<image src="https://image.tmdb.org/t/p/original${images.posters[i].file_path}" height="282rem"></image>`;
+  }
+  print += `<div class="mx-5 px-5 media-link-div"><a href="" class=" link">View More <i class="bi bi-arrow-right"></i></a></div>`;
+  document.getElementById('media-view').innerHTML = print;
 }

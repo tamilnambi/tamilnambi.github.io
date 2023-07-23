@@ -334,16 +334,37 @@
                 <a href="#" class="btn fw-bold my-2">Full Cast & Crew</a>
                 <hr class="my-2">
             </div>
+            <!-- Review Section -->
             <div class="mt-4">
               <div class="d-flex align-items-center">
                 <h5 class="me-5">Social</h5>
-                <h6 class="me-3"><a href="#" class="review-link">Reviews</a></h6>
-                <h6 class="me-3"><a href="#" class="discussion-link">Discussions</a></h6>
+                <h6 class="me-3"><a href="#" class="link">Reviews</a></h6>
+                <h6 class="me-3"><a href="#" class="link">Discussions</a></h6>
               </div>
               <div id="review-discussion-view">
               </div>
             </div>
-            <hr class="my-2">
+            <!-- Media section to show trailers, backdrops and posters -->
+            <div class="mt-4">
+              <div class="d-flex align-items-center">
+                <h5 class="me-5">Media</h5>
+                <h6 class="me-3"><button class="btn" onclick="displayPopular()">Most Popular</button></h6>
+                <h6 class="me-3"><button class="btn" onclick="displayVideos()">Videos</button></h6>
+                <h6 class="me-3"><button class="btn" onclick="displayBackdrops()">Backdrops</button></h6>
+                <h6 class="me-3"><button class="btn" onclick="displayPosters()">Posters</button></h6>
+              </div>
+              <div id="media-view" class="d-flex overflow-x-auto rounded-top">
+              </div>
+              <div id="play-trailer"></div>
+            </div>
+            <hr class="my-4">
+            <!-- Recommendations -->
+            <div class="mt-2">
+              <h5>Recommendations</h5>
+              <div class="d-flex">
+
+              </div>
+            </div>
         </section>
         <section id="right-section"></section>
     </div>
