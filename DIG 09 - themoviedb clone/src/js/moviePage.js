@@ -48,6 +48,7 @@ function displayMovie(response) {
   getCastAndCrew(response.id);
   getReviews(response.id);
   getMedia(response.id);
+  getRecommendations(response.id);
 }
 //gets the cast and crew from the movie id and forwards for display
 function getCastAndCrew(id) {
@@ -141,17 +142,17 @@ function displayRating(rating) {
   console.log(rating);
   if (rating > 70)
     bg = `background: 
-    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+    radial-gradient(closest-side, black 79%, transparent 80% 100%),
     conic-gradient(green ${rating}%, gray 0)`;
   else if (rating > 50)
     bg = `background: 
-  radial-gradient(closest-side, white 79%, transparent 80% 100%),
+  radial-gradient(closest-side, black 79%, transparent 80% 100%),
   conic-gradient(yellow ${rating}%, gray 0)`;
   else
     bg = `background: 
-  radial-gradient(closest-side, white 79%, transparent 80% 100%),
+  radial-gradient(closest-side, black 79%, transparent 80% 100%),
   conic-gradient(red ${rating}%, gray 0)`;
-  let print = `<div class="progress-bar" style="${bg}">${rating}%<progress value="${rating}" min="0" max="100" style="visibility:hidden;height:0;width:0;"></progress></div>`;
+  let print = `<div class="progress-bar" style="${bg}"><span class="text-light">${rating}<sup>%</sup></span><progress value="${rating}" min="0" max="100" style="visibility:hidden;height:0;width:0;"></progress></div>`;
   document.getElementById("movie-rating").innerHTML = print;
 }
 //to get the trailers, backdrops and posters of the movie from api
@@ -218,4 +219,19 @@ function displayPosters(){
   }
   print += `<div class="mx-5 px-5 media-link-div"><a href="" class=" link">View More <i class="bi bi-arrow-right"></i></a></div>`;
   document.getElementById('media-view').innerHTML = print;
+}
+
+async function getRecommendations(movieId){
+
+  let print = "";
+
+  const recommendations = await fetch('https://api.themoviedb.org/3/movie/298618/recommendations', options)
+  .then(response => response.json())
+  .then(response => {return response})
+  .catch(err => console.error(err));
+
+  for(let i=0;i<recommendations.results.length;i++){
+    print += `<div class="mx-3"><img class="rounded" src="https://image.tmdb.org/t/p/original${recommendations.results[i].backdrop_path}" width="300rem"><p>${recommendations.results[i].title}</p></div>`;
+    document.getElementById('recommendations').innerHTML = print;
+  }
 }
