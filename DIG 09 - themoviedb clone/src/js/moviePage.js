@@ -157,7 +157,6 @@ function displayRating(rating) {
 }
 //to get the trailers, backdrops and posters of the movie from api
 async function getMedia(movieId){
-  //const trailers = getTrailers(movieId);
 
   await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos`, options)
   .then(response => response.json())
@@ -231,7 +230,11 @@ async function getRecommendations(movieId){
   .catch(err => console.error(err));
 
   for(let i=0;i<recommendations.results.length;i++){
-    print += `<div class="mx-3"><img class="rounded" src="https://image.tmdb.org/t/p/original${recommendations.results[i].backdrop_path}" width="300rem"><p>${recommendations.results[i].title}</p></div>`;
+    print += `<div class="mx-3" onclick="displayNextMovie(${recommendations.results[i].id})"><img class="rounded" src="https://image.tmdb.org/t/p/original${recommendations.results[i].backdrop_path}" width="300rem"><p>${recommendations.results[i].title}</p></div>`;
     document.getElementById('recommendations').innerHTML = print;
   }
+}
+function displayNextMovie(movieId){
+  localStorage.setItem('movieId',movieId);
+  location.reload();
 }
